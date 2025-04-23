@@ -2,7 +2,9 @@ import { auth0 } from "@/lib/auth0";
 import Image from "next/image";
 
 export default async function Header() {
-  const { user } = await auth0.getSession();
+  const session = await auth0.getSession();
+  const user = session?.user;
+
 
   return (
 <header className="h-[64px] bg-[#0b0c2a] text-white px-6 flex justify-between items-center">

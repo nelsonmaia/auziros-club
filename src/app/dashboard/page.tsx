@@ -2,7 +2,9 @@ import { auth0 } from "@/lib/auth0";
 import Image from "next/image";
 
 export default async function DashboardPage() {
-  const { user } = await auth0.getSession();
+  const session = await auth0.getSession();
+  const user = session?.user;
+
 
   return (
     <div className="bg-[#f6f6f6] w-screen min-h-screen overflow-x-hidden">
